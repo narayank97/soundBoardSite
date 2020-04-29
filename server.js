@@ -7,16 +7,17 @@ const app = express();
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 
-const initializePassport = require('./passport-config');
+
 const flash = require('express-flash');
 const session = require('express-session');
 
 const users = []; // my db rn
 
+const initializePassport = require('./passport-config');
 initializePassport(
     passport,
     email => users.find(user => user.email === email),
-    id => users.find(id =>user.id === id)
+    id => users.find(user => user.id === id)
 );
 
 
